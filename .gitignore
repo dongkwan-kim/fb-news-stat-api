@@ -1,3 +1,9 @@
+#uwsgi, nginx settings
+*.sock
+*.ini
+*.conf
+uwsgi_params
+
 ### Django ###
 *.log
 *.pot
