@@ -34,7 +34,12 @@ Joint project for google newslab fellowship 16/17
         "link": (TYPE URL),
         "count": (TYPE INT),
       },
-    ]
+    ],
+    "type": {
+      "link": (TYPE INT),
+      "video": (TYPE INT),
+      "none_or_photo": (TYPE INT),
+    }
   },
   "page": {
     "host": [
@@ -50,6 +55,21 @@ Joint project for google newslab fellowship 16/17
         "count": (TYPE INT),
       },
     ]
+  },
+  "user": {
+    "gender": [
+      {
+        // TODO
+      }
+    ],
+    "age": [
+      {
+        // TODO
+      }
+    ],
+    
+    // TODO
+    
   }
 }
 ```
