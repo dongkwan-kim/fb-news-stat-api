@@ -75,3 +75,8 @@ Joint project for google newslab fellowship 16/17
 ```
 
 ## Project Example
+- https://fnsapi.newslabfellows.com/fbnews
+
+## Core Developers
+- @todoaskit
+- @Jiwoopark0508
