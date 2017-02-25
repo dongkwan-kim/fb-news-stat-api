@@ -18,7 +18,7 @@ Joint project for google newslab fellowship 16/17
 - You can use test token
 
 ### Statistics
-- GET /stats/portal/
+- GET /portal/
 - parameter
   - date_from TYPE DATE
   - date_to TYPE DATE
@@ -44,7 +44,7 @@ Joint project for google newslab fellowship 16/17
   },
 ]
 ```
-- GET /stats/page/
+- GET /page/
 - parameter
   - date_from TYPE DATE
   - date_to TYPE DATE
