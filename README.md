@@ -18,7 +18,7 @@ Joint project for google newslab fellowship 16/17
 - You can use test token
 
 ### Statistics
-- GET /stats/
+- GET /stats/portal/
 - parameter
   - date_from TYPE DATE
   - date_to TYPE DATE
@@ -27,60 +27,53 @@ Joint project for google newslab fellowship 16/17
 - result TYPE JSON
 
 ```javascript
-{
-  "portal": [
-    {
-      "name": (TYPE STRING),
-      "hostname": (TYPE STRING),
-      "count": (TYPE INT),
-      "link": [
-        {
-          "title": (TYPE STRING),
-          "description": (TYPE STRING),
-          "image": (TYPE URL),
-          "url": (TYPE URL),
-          "count": (TYPE INT),
-        },
-      ]
-    },
-  ],
-  "page": [
-    {
-      "name": (TYPE STRING),
-      "id": (TYPE STRING),
-      "count": (TYPE INT),
-      "link": [
-        {
-          "title": (TYPE STRING),
-          "description": (TYPE STRING),
-          "image": (TYPE URL),
-          "url": (TYPE URL),
-          "count": (TYPE INT),
-        },
-      ],
-      "type": {
-        "link": (TYPE INT),
-        "video": (TYPE INT),
-        "none_or_photo": (TYPE INT),
-      }
+[
+  {
+    "name": (TYPE STRING),
+    "hostname": (TYPE STRING),
+    "count": (TYPE INT),
+    "link": [
+      {
+        "title": (TYPE STRING),
+        "description": (TYPE STRING),
+        "image": (TYPE URL),
+        "url": (TYPE URL),
+        "count": (TYPE INT),
+      },
+    ]
+  },
+]
+```
+- GET /stats/page/
+- parameter
+  - date_from TYPE DATE
+  - date_to TYPE DATE
+  - token TYPE SHA-224-STRING
+  - length TYPE INT
+- result TYPE JSON
+
+```javascript
+[
+  {
+    "name": (TYPE STRING),
+    "id": (TYPE STRING),
+    "count": (TYPE INT),
+    "link": [
+      {
+        "title": (TYPE STRING),
+        "description": (TYPE STRING),
+        "image": (TYPE URL),
+        "url": (TYPE URL),
+        "count": (TYPE INT),
+      },
+    ],
+    "type": {
+      "link": (TYPE INT),
+      "video": (TYPE INT),
+      "none_or_photo": (TYPE INT),
     }
-  ],
-  "user": {
-    "gender": [
-      {
-        // TODO
-      }
-    ],
-    "age": [
-      {
-        // TODO
-      }
-    ],
-    
-    // TODO
-    
   }
-}
+]
 ```
 
 ## Project Example
