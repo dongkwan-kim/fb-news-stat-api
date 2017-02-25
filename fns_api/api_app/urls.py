@@ -19,4 +19,5 @@ from api_app import views as api_views
 
 urlpatterns = [
     url(r'^test/', api_views.test),
+    url(r"^v1/([\w \[\]\.]+)/$", api_views.request_v1),
 ]
