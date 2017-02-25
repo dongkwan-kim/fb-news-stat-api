@@ -56,7 +56,7 @@ Joint project for google newslab fellowship 16/17
 [
   {
     "name": (TYPE STRING),
-    "id": (TYPE STRING),
+    "pid": (TYPE STRING),
     "count": (TYPE INT),
     "link": [
       {
@@ -67,7 +67,7 @@ Joint project for google newslab fellowship 16/17
         "count": (TYPE INT),
       },
     ],
-    "type": {
+    "ptype": {
       "link": (TYPE INT),
       "video": (TYPE INT),
       "none_or_photo": (TYPE INT),
