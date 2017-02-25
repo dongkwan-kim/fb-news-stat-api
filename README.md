@@ -37,7 +37,10 @@ Joint project for google newslab fellowship 16/17
     ],
     "link": [
       {
-        "link": (TYPE URL),
+        "title": (TYPE STRING),
+        "description": (TYPE STRING),
+        "image": (TYPE URL),
+        "url": (TYPE URL),
         "count": (TYPE INT),
       },
     ]
@@ -52,7 +55,10 @@ Joint project for google newslab fellowship 16/17
     ],
     "link": [
       {
-        "link": (TYPE URL),
+        "title": (TYPE STRING),
+        "description": (TYPE STRING),
+        "image": (TYPE URL),
+        "url": (TYPE URL),
         "count": (TYPE INT),
       },
     ],
