@@ -7,3 +7,15 @@ class UserToken(models.Model):
     email = models.EmailField()
     month_count = models.IntegerField(default=0)
 
+
+class EncLog(models.Model):
+    enc_id = models.CharField(max_length=64)
+    enc_info = models.TextField()
+    # not DateTimeField
+    last_visit = models.DateField()
+
+
+class NewsScore(models.Model):
+    name = models.CharField(max_length=50)
+    news_id = models.CharField(max_length=50)
+
