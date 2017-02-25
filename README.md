@@ -23,28 +23,27 @@ Joint project for google newslab fellowship 16/17
   - date_from TYPE DATE
   - date_to TYPE DATE
   - token TYPE SHA-224-STRING
+  - length TYPE INT
 - result TYPE JSON
 
 ```javascript
 {
-  "portal": {
-    "host": [
-      {
-        "name": (TYPE STRING),
-        "hostname": (TYPE STRING),
-        "count": (TYPE INT),
-      },
-    ],
-    "link": [
-      {
-        "title": (TYPE STRING),
-        "description": (TYPE STRING),
-        "image": (TYPE URL),
-        "url": (TYPE URL),
-        "count": (TYPE INT),
-      },
-    ]
-  },
+  "portal": [
+    {
+      "name": (TYPE STRING),
+      "hostname": (TYPE STRING),
+      "count": (TYPE INT),
+      "link": [
+        {
+          "title": (TYPE STRING),
+          "description": (TYPE STRING),
+          "image": (TYPE URL),
+          "url": (TYPE URL),
+          "count": (TYPE INT),
+        },
+      ]
+    },
+  ],
   "page": [
     {
       "name": (TYPE STRING),
