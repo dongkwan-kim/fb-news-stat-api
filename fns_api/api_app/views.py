@@ -18,14 +18,16 @@ def request_v1(request, kind):
         dict_json["err"] = "wrong token"
         return res(dict_json)
 
-    if kind == "stats":
-        dict_json = stats_v1(request)
-        return res(dict_json)
+    if kind == "portal":
+        return res(portal_v1(request))
+
+    elif kind == "page":
+        pass
 
     dict_json["err"] = "wrong request"
     return res(dict_json)
 
-def res(json_as_dict)
+def res(json_as_dict):
     return HttpResponse(json.dumps(json_as_dict))
 
 def verify_token(request):
@@ -48,18 +50,16 @@ def verify_token(request):
     finally:
         return False
 
-def get_date_from_req(request, key):
-    try:
-        return request.GET["date_"+key]
-    except:
-        return "2017-02-25"
-
-def stats_v1(request):
+def portal_v1(request):
     """
     @return TYPE DICT
     """
-    # ^[0-9]{4}-[0-9]{2}-[0-9]{2}$
-    date_to = get_date_from_req(request, "to")
-    date_from = get_date_from_req(request, "from")
+    try:
+        # ^[0-9]{4}-[0-9]{2}-[0-9]{2}$
+        date_from = request.GET["date_from"]
+        date_to = request.GET["date_to"]
+        length= request.GET["length"]
 
+    except:
+        return {"err":"Not enough attributes"}
 
