@@ -1,3 +1,5 @@
+migrations/
+
 #uwsgi, nginx settings
 *.sock
 *.ini
