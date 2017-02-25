@@ -45,29 +45,27 @@ Joint project for google newslab fellowship 16/17
       },
     ]
   },
-  "page": {
-    "host": [
-      {
-        "name": (TYPE STRING),
-        "id": (TYPE STRING),
-        "count": (TYPE INT),
-      },
-    ],
-    "link": [
-      {
-        "title": (TYPE STRING),
-        "description": (TYPE STRING),
-        "image": (TYPE URL),
-        "url": (TYPE URL),
-        "count": (TYPE INT),
-      },
-    ],
-    "type": {
-      "link": (TYPE INT),
-      "video": (TYPE INT),
-      "none_or_photo": (TYPE INT),
+  "page": [
+    {
+      "name": (TYPE STRING),
+      "id": (TYPE STRING),
+      "count": (TYPE INT),
+      "link": [
+        {
+          "title": (TYPE STRING),
+          "description": (TYPE STRING),
+          "image": (TYPE URL),
+          "url": (TYPE URL),
+          "count": (TYPE INT),
+        },
+      ],
+      "type": {
+        "link": (TYPE INT),
+        "video": (TYPE INT),
+        "none_or_photo": (TYPE INT),
+      }
     }
-  },
+  ],
   "user": {
     "gender": [
       {
