@@ -18,10 +18,11 @@ Joint project for google newslab fellowship 16/17
 - You can use test token
 
 ### Statistics
-- GET /token/stats/
+- GET /stats/
 - parameter
   - date_from TYPE DATE
   - date_to TYPE DATE
+  - token TYPE SHA-224-STRING
 - result TYPE JSON
 
 ```javascript
