@@ -12,6 +12,11 @@ Joint project for google newslab fellowship 16/17
 ### API Endpoints
 - URL: https://fnsapi.newslabfellows.com/api/v1
 
+### Token
+- You need to get your own token to use this api.
+- Token registration is not supported yet.
+- You can use test token
+
 ### Statistics
 - GET /token/stats/
 - parameter
