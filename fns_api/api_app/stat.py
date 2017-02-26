@@ -1,15 +1,16 @@
 from datetime import datetime, date
-
+from api_app.log_parse import log_parse
 
 class Stat():
 
-    def __init__(self, date_from, date_to, length):
+    def __init__(self, date_from, date_to, length, stat_type):
         DP = "%Y-%m-%d"
 
         self.date_from = datetime.strptime(date_from, DP).date()
         self.date_to = datetime.strptime(date_to, DP).date()
         self.length = length
 
+        self.stat_type = stat_type
         self.stat_list = []
 
     def append(self, stat):
@@ -17,6 +18,27 @@ class Stat():
 
     def dump(self):
         return [s.dump() for s in self.stat_list]
+
+    def is_valid_log(self, enc_log):
+        lv = enc_log.last_visit
+        if self.date_from <= lv and lv <= self.date_to:
+            return True
+        else:
+            return False
+
+    def update(self, enc_log):
+        """
+        enc_id = models.CharField(max_length=64)
+        enc_info = models.TextField()
+        last_visit = models.DateField()
+        """
+        if not self.is_valid_log(enc_log):
+            return False
+
+        for log in json.dumps(enc_log.enc_info):
+            parse_result = log_parse(log)
+
+
 
 
 class NewsProvider():
