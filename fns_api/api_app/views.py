@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import json
 from api_app.models import UserToken
+from api_app.stat import Stat, Portal, Page, Link
 
 # Create your views here.
 
@@ -50,16 +51,20 @@ def verify_token(request):
     finally:
         return False
 
+
+def get_stat_obj(request, stat_type):
+    date_from = request.GET["date_from"]
+    date_to = request.GET["date_to"]
+    length= request.GET["length"]
+
+    return Stat(date_from, date_to, length, stat_type)
+
 def portal_v1(request):
     """
     @return TYPE DICT
     """
     try:
-        # ^[0-9]{4}-[0-9]{2}-[0-9]{2}$
-        date_from = request.GET["date_from"]
-        date_to = request.GET["date_to"]
-        length= request.GET["length"]
-
+        stat = get_stat_obj(request, "portal")
     except:
         return {"err":"Not enough attributes"}
 
