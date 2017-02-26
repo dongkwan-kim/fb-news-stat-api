@@ -14,9 +14,8 @@ def get_og_meta(news_link):
     description = ''
     image = ''
     url = ''
-    base_url = "http://mentalwin.newslabfellows.com/"
     request = urllib.request.Request(
-        base_url, headers={'User-Agent': 'Mozilla/5.0'})
+        news_link, headers={'User-Agent': 'Mozilla/5.0'})
     response = urllib.request.urlopen(request)
     for line in response:
         line = line.decode("utf-8")
