@@ -10,7 +10,7 @@ class Stat():
 
         self.date_from = datetime.strptime(date_from, DP).date()
         self.date_to = datetime.strptime(date_to, DP).date()
-        self.length = length
+        self.length = int(length)
 
         self.stat_type = stat_type
         self.stat_list = []
@@ -19,7 +19,7 @@ class Stat():
         self.stat_list.append(stat)
 
     def dump(self):
-        return [s.dump() for s in self.stat_list]
+        return [s.dump(self.length) for s in self.stat_list]
 
     def is_valid_log(self, enc_log):
         lv = enc_log.saved_date
@@ -41,7 +41,7 @@ class Stat():
             parse_result = log_parse(log, self.stat_type)
 
             if self.stat_type == "portal":
-                update_portal(parse_result)
+                self.update_portal(parse_result)
 
             elif self.stat_type == "page":
                 pass
@@ -49,16 +49,16 @@ class Stat():
     def update_portal(self, parse_result):
         # defaultdict(list), key: portal, value: [url]
         for p_name, url_list in parse_result.items():
-
-            new_portal = Portal(pname, pname)
+            new_portal = Portal(p_name, p_name)
             for url in url_list:
                 new_link = Link(url)
                 new_portal.append_link(new_link)
 
-
-
-
-
+            if new_portal in self.stat_list:
+                idx = self.stat_list.index(new_portal)
+                self.stat_list[idx] += new_portal
+            else:
+                self.append(new_portal)
 
 
 class NewsProvider():
@@ -81,12 +81,20 @@ class NewsProvider():
 
         self.add_count(link_obj.count)
 
-    def dump(self):
+    def dump(self, length):
         d = vars(self)
-        d["link"] = [l.dump() for l in self.link]
+
+        link_list = sorted(self.link, reverse=True, key=lambda x: x.count)[:length]
+        for l in link_list:
+            l.meta()
+        d["link"] = [l.dump() for l in link_list]
+
         return d
 
-
+    def __add__(self, other):
+        for o_link in other.link:
+            self.append_link(o_link)
+        return self
 
 class Portal(NewsProvider):
 
@@ -95,7 +103,10 @@ class Portal(NewsProvider):
         self.hostname = hostname
 
     def __eq__(self, other):
-        return self.hostname == other.hostname
+        try:
+            return self.hostname == other.hostname
+        except:
+            return False
 
 
 class Page(NewsProvider):

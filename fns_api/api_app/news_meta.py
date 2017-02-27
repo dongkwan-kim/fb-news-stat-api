@@ -2,11 +2,14 @@ import urllib.request
 import urllib.parse
 import re
 
-def get_og_meta(news_link):
+def get_og_meta(news_link, is_naver=False):
     """
     @param news_link TYPE URL
     @return TYPE DICT {title, description, image, url}
     """
+    naver_p = re.compile("^http://news.naver.com")
+    if naver_p.match(news_link):
+        news_link = m_naver(news_link)
 
     title = ''
     description = ''
@@ -43,16 +46,22 @@ def get_og_meta(news_link):
         if title and description and image and url:
             break
 
-    return {
+    r = {
         "title": title,
         "description": description,
         "image": image,
         "url": url,
     }
+    return r
+
+def m_naver(naver_link):
+    naver_link = naver_link.replace("main/read.nhn", "read.nhn")
+    naver_link = naver_link.replace("news.naver.com", "m.news.naver.com")
+    return naver_link
+
 
 if __name__ == "__main__":
-    url_1 = "http://news.chosun.com/site/data/html_dir/2017/02/26/2017022601574.html?Dep0=facebook&topics"
-    url_2 = "http://news.joins.com/article/21312373?cloc=joongang%7Csns%7Cfb"
-    l = get_og_meta(url_1)
-    print(l.dump())
+    url = "http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=032&aid=0002766273"
+    l = get_og_meta(url, True)
+    print(l)
 

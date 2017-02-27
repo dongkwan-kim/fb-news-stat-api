@@ -72,6 +72,8 @@ def portal_v1(request):
     for el in EncLog.objects.all():
         stat.update(el)
 
+    return stat.dump()
+
 def updatedb(request, fs):
     u_db = udb.UpdateDB(request)
     res = u_db.update(fs)
