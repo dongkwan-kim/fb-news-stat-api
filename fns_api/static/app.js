@@ -9,7 +9,7 @@ var app = new Vue({
   },
   methods : {
       change_mode : function(mode) {
-        console.log(this.mode);
+        $('#datatable').dataTable();
         this.mode = mode;
       }
   }

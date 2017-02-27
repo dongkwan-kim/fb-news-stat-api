@@ -60,9 +60,9 @@
       }
     ],
     "ptype": {
-      "link": 120,
-      "video": 150,
-      "none_or_photo": "200"
+      "link": 130,
+      "video": 160,
+      "none_or_photo": "2000"
     }
   }
 ]
