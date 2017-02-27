@@ -102,3 +102,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# template node_modules
+fns_api/templates/node_modules
