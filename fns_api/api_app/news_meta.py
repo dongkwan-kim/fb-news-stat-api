@@ -31,7 +31,7 @@ def get_og_meta(news_link, is_naver=False):
         line = line.decode(charset)
 
         matchObj = re.match(
-            r'.*[\'\"]og:(\w*)[\'\"].*content.*[\'\"](.*)[\'\"].*', line, re.M | re.I)
+            r'.*[\'\"]og:(\w*)[\'\"].*content.*[\"](.*)[\"].*', line, re.M | re.I)
         if matchObj:
             tagType = matchObj.group(1)
             if tagType == 'title':
@@ -58,6 +58,12 @@ def m_naver(naver_link):
     naver_link = naver_link.replace("main/read.nhn", "read.nhn")
     naver_link = naver_link.replace("news.naver.com", "m.news.naver.com")
     return naver_link
+
+def c(s, e1, e2):
+    try:
+        return s.encode(e1).decode(e2)
+    except:
+        return s
 
 
 if __name__ == "__main__":
