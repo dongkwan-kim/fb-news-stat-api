@@ -1,0 +1,60 @@
+[
+    {
+        "id" : 1,
+      "name": "Naver",
+      "hostname": "NaverHost",
+      "count": 30,
+      "link": [
+        {
+          "title": "Dummy1",
+          "description": "Dummy description1",
+          "image": "Dummy imageURL1",
+          "url": "Dummy url1",
+          "count": 10
+        },
+        {
+          "title": "Dummy2",
+          "description": "Dummy description2",
+          "image": "Dummy imageURL2",
+          "url": "Dummy url2",
+          "count": 20
+        },
+        {
+          "title": "Dummy3",
+          "description": "Dummy description2",
+          "image": "Dummy imageURL2",
+          "url": "Dummy url2",
+          "count": 30
+        }
+      ]
+    },
+    {
+      "id" : 2,
+      "name": "Daum",
+      "hostname": "DaumHost",
+      "count": 50,
+      "link": [
+        {
+          "title": "Dummy1",
+          "description": "Dummy description1",
+          "image": "Dummy imageURL1",
+          "url": "Dummy url1",
+          "count": 10
+        },
+        {
+          "title": "Dummy2",
+          "description": "Dummy description2",
+          "image": "Dummy imageURL2",
+          "url": "Dummy url2",
+          "count": 20
+        },
+        {
+          "title": "Dummy3",
+          "description": "Dummy description2",
+          "image": "Dummy imageURL2",
+          "url": "Dummy url2",
+          "count": 30
+        }
+      ]
+    }
+]
