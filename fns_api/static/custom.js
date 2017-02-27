@@ -1633,7 +1633,7 @@ if (typeof NProgress != 'undefined') {
           "length" : length
         }
         return $.ajax({"method": "GET",
-                      "url":"https://fnsapi.newslabfellows.com/api/v1",
+                      "url":"https://fnsapi.newslabfellows.com/api/v1/portal",
                       "data": data});
       }
 			$('#reportrange').on('apply.daterangepicker', function(ev, picker) {
