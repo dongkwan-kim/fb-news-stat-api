@@ -2,11 +2,11 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/main.js',
+  entry: ['../static/portalLink.js', '../static/vue_bar_chart.js'],
   output: {
     path: path.resolve(__dirname, '../static/dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: 'vue_barchart.js'
   },
   module: {
     rules: [
