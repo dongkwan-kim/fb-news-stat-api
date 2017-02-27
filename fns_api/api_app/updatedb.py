@@ -34,6 +34,7 @@ class UpdateDB():
         return "register ns success"
 
     def register_enclog(self):
+        EncLog.objects.all().delete()
         i = open("log_encrypt.tsv", "r")
         for line in i:
             # hash \t info \t str(datetime)
