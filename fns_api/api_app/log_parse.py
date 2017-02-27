@@ -26,11 +26,12 @@ re_portal = {
 pa_portal = { name:re.compile(regex) for (name, regex) in re_portal.items() }
 
 def parse_portal(log):
+    portal_dict = defaultdict(list)
     for a in collect_tag(log, "a"):
         for name, pattern in pa_portal.items():
-            ps =  pattern.search(a)
-            if ps:
-                print(a)
+            if pattern.search(a):
+                portal_dict[name].append(a)
+    return portal_dict
 
 def parse_page(log):
     raise NotImplementedError
