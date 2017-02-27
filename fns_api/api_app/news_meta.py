@@ -1,4 +1,3 @@
-from api_app.stat import Link
 import urllib.request
 import urllib.parse
 import re
@@ -48,7 +47,7 @@ def get_og_meta(news_link):
         "title": title,
         "description": description,
         "image": image,
-        "url"; url,
+        "url": url,
     }
 
 if __name__ == "__main__":
