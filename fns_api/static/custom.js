@@ -5023,7 +5023,15 @@ if (typeof NProgress != 'undefined') {
 			}
 	   
 		}  
-	   
+	function initData() {
+        console.log('initData');
+        $.ajax({
+            url : '/static/dummy/dummy_portal.json'  ,
+            method : 'GET'
+        }).then(function(data){
+            console.log(data) ;
+        });
+    }   
 	   
 	$(document).ready(function() {
 				
@@ -5061,7 +5069,6 @@ if (typeof NProgress != 'undefined') {
 		init_CustomNotification();
 		init_autosize();
 		init_autocomplete();
-				
 	});	
 	
 

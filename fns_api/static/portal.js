@@ -1,9 +1,21 @@
 var portal = {
-  props : ["news"],
-  template : "<div class='col-md-4 col-sm-4 col-xs-12>\
-                <div class='x_panel tile fixed_height_320'>\
-                  <div class='x_title'>{{ news }}</div>\
-                </div>\
+  name : "portal",
+  props : {
+        portal : {} 
+    },
+
+  template : "<div class='col-md-4 col-sm-4 col-xs-12'>\
+                    <div class='x_panel tile fixed_height_320'>\
+                      <div class='x_title'>\
+                        <h2>{{ portal.name }}</h2>\
+                        <div class='clearfix'></div>\
+                        </div>\
+                        <div class='x_content'>\
+                            <div class='accordion' :id='portal.name' role='tablist' aria-multiselectable='true'>\
+                                <portal-link v-for='link in portal.link' :parent='portal.name' :link='link'></portal-link>\
+                            </div>\
+                        </div>\
+                    </div>\
               </div>",
 }
 
