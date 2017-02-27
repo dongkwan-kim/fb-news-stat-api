@@ -5,6 +5,11 @@
     {% include "head.html" %}
     <!-- Custom Theme Style -->
     <link href="{% static "custom.min.css"%}" rel="stylesheet">
+    <style>
+        .none{
+            display : none;
+        }
+    </style>
   </head>
   <body class="nav-md">
     <div id="app" class="container body">
@@ -28,7 +33,7 @@
                   <li><a><i class="fa fa-home"></i> Portal & Pages <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a @click.prevent='change_mode("portals")'>News From Portals</a></li>
-                        <li><a @click.prevent='change_mode("pages")'>News From Pages</a></li>
+                        <li><a @click.prevent='change_mode("pages");'>News From Pages</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -52,10 +57,18 @@
                       <i class='glyphicon glyphicon-calendar fa fa-calendar'></i>
                       <b class='caret'></b>
                     </div>
+                    <div class="col-md-offset-7 col-md-3 col-sm-3 col-xs-12">
+                      <select id="length" class="form-control">
+                        <option>Choose option</option>
+                        <option>5</option>
+                        <option>15</option>
+                        <option>20</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
-            <portal-news v-if="mode == 'portals'" :portals="portals"></portal-news>
-            <page-news v-if="mode == 'pages'" :pages="pages"></page-news>
+                <portal-news :class="{none : mode == 'pages'}" :portals="portals"></portal-news>
+                <page-news :class="{none : mode == 'portals'}" :pages="pages"></page-news>
         </div>
         <!-- /page content -->
       </div>
