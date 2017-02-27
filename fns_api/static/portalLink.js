@@ -15,7 +15,7 @@ var portalLink = {
                 <a class='panel-heading collapsed' href='panel-heading collapsed' role='tab' data-toggle='collapse'\
                 :data-parent='sharp + parent' :href='sharp + collapse + parent + link.title'\
                 aria-expanded='false'>\
-                    <h4 class='panel-title'>{{ link.title }}</h4>\
+                    <h4 class='panel-title'>{{ link.title }} <span class='label label-success pull-right'>Count : {{link.count}}</span></h4>\
                 </a>\
                 <div class='panel-collapse collapse' :id='collapse + parent + link.title'>\
                    <div class='panel-body'>\
