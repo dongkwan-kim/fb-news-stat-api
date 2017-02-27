@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
-from api_app.models import UserToken
+from api_app.models import UserToken, EncLog
 from api_app.stat import Stat, Portal, Page, Link
+import api_app.updatedb as udb
 
 # Create your views here.
 
@@ -68,3 +69,10 @@ def portal_v1(request):
     except:
         return {"err":"Not enough attributes"}
 
+    for el in EncLog.objects.all():
+        stat.update(el)
+
+def updatedb(request, fs):
+    u_db = udb.UpdateDB(request)
+    res = u_db.update(fs)
+    return HttpResponse(res)

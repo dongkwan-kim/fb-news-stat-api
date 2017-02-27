@@ -1,5 +1,7 @@
+import json
 from datetime import datetime, date
 from api_app.log_parse import log_parse
+from api_app.news_meta import get_og_meta
 
 class Stat():
 
@@ -20,7 +22,7 @@ class Stat():
         return [s.dump() for s in self.stat_list]
 
     def is_valid_log(self, enc_log):
-        lv = enc_log.last_visit
+        lv = enc_log.saved_date
         if self.date_from <= lv and lv <= self.date_to:
             return True
         else:
@@ -30,14 +32,13 @@ class Stat():
         """
         enc_id = models.CharField(max_length=64)
         enc_info = models.TextField()
-        last_visit = models.DateField()
+        saved_date = models.DateField()
         """
         if not self.is_valid_log(enc_log):
             return False
 
-        for log in json.dumps(enc_log.enc_info):
-            parse_result = log_parse(log)
-
+        for log in json.loads(enc_log.enc_info):
+            parse_result = log_parse(log, self.stat_type)
 
 
 
@@ -45,7 +46,7 @@ class NewsProvider():
 
     def __init__(self, name):
         self.name = name
-        self.count = 0
+        self.count = 1
         self.link = []
 
     def add_count(self, d=1):
@@ -93,15 +94,25 @@ class PageType():
 
 class Link():
 
-    def __init__(self, title, description, image, url):
-        self.title = title
-        self.description = description
-        self.image = image
+    def __init__(self, url):
+        self.title = ""
+        self.description = ""
+        self.image = ""
         self.url = url
-        self.count = 0
+        self.count = 1
 
     def add_count(self, d=1):
         self.count += d
+
+    def meta(self):
+        try:
+            meta_dict = get_og_meta(self.url)
+            self.title = meta_dict["title"]
+            self.description = meta_dict["description"]
+            self.image = meta_dict["image"]
+            self.url = meta_dict["url"]
+        except:
+            pass
 
     def dump(self):
         return vars(self)
@@ -109,9 +120,9 @@ class Link():
 
 if __name__ == "__main__":
     import pprint
-    l_1 = Link("ti1", "des1", "img1", "url1")
-    l_2 = Link("ti2", "des2", "img2", "url2")
-    l_3 = Link("ti3", "des3", "img3", "url3")
+    l_1 = Link("url1")
+    l_2 = Link("url2")
+    l_3 = Link("url3")
 
     p_1 = Portal("p1", "p1_id")
     p_1.append_link(l_1)

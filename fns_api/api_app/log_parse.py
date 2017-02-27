@@ -1,4 +1,6 @@
 import re
+import pprint
+from collections import defaultdict
 
 
 def log_parse(log, stat_type):
@@ -13,9 +15,22 @@ def log_parse(log, stat_type):
     elif stat_type == "page":
         pass
 
+re_portal = {
+    "naver": "^http.*news\.naver\.com",
+    "daum": "^http.*media\.daum\.net",
+    "nate": "^http.*news\.nate\.com",
+    "zum": "^http.*news\.zum\.com|^http.*m\.zum\.com/news",
+    "msn": "^http.*msn\.com/ko-kr/news|^http.*msn\.com/ko-kr/.+/news"
+}
+
+pa_portal = { name:re.compile(regex) for (name, regex) in re_portal.items() }
+
 def parse_portal(log):
     for a in collect_tag(log, "a"):
-        pass
+        for name, pattern in pa_portal.items():
+            ps =  pattern.search(a)
+            if ps:
+                print(a)
 
 def parse_page(log):
     raise NotImplementedError
