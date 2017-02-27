@@ -19,7 +19,7 @@ var portalLink = {
                 </a>\
                 <div class='panel-collapse collapse' :id='collapse + parent + link.lid'>\
                    <div class='panel-body'>\
-                        <img style="width : 100%" :src='link.image' alt=''>\
+                        <img style='width : 100%' :src='link.image' alt=''>\
                         <a :href='link.url'><p> {{ link.description }} </p></a>\
                    </div>\
                 </div>\
