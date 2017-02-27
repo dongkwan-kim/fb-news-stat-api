@@ -1,3 +1,4 @@
+import json
 from datetime import datetime, date
 from api_app.log_parse import log_parse
 
@@ -20,7 +21,7 @@ class Stat():
         return [s.dump() for s in self.stat_list]
 
     def is_valid_log(self, enc_log):
-        lv = enc_log.last_visit
+        lv = enc_log.saved_date
         if self.date_from <= lv and lv <= self.date_to:
             return True
         else:
@@ -30,14 +31,13 @@ class Stat():
         """
         enc_id = models.CharField(max_length=64)
         enc_info = models.TextField()
-        last_visit = models.DateField()
+        saved_date = models.DateField()
         """
         if not self.is_valid_log(enc_log):
             return False
 
-        for log in json.dumps(enc_log.enc_info):
-            parse_result = log_parse(log)
-
+        for log in json.loads(enc_log.enc_info):
+            parse_result = log_parse(log, self.stat_type)
 
 
 
