@@ -1581,7 +1581,7 @@ if (typeof NProgress != 'undefined') {
 			var optionSet1 = {
 			  startDate: moment().subtract(29, 'days'),
 			  endDate: moment('12/31/2017'),
-			  minDate: '01/01/2017',
+			  minDate: '02/01/2017',
 			  maxDate: '12/31/2017',
 			  dateLimit: {
 				days: 60
@@ -1633,7 +1633,7 @@ if (typeof NProgress != 'undefined') {
           "length" : length
         }
         return $.ajax({"method": "GET",
-                      "url":"https://fnsapi.newslabfellows.com/api/v1/portal",
+                      "url":"/api/v1/portal",
                       "data": data});
       }
 			$('#reportrange').on('apply.daterangepicker', function(ev, picker) {
@@ -1652,7 +1652,7 @@ if (typeof NProgress != 'undefined') {
                 data: {
                   labels: [].map.call(app.portals, function(data){return data.name}),
                   datasets: [{
-                    label: '# of Votes',
+                    label: '# of news',
                     backgroundColor: "#26B99A",
                     data: [].map.call(app.portals, function(data){ return data.count })
                   }]
