@@ -6,7 +6,7 @@ import re
 def get_og_meta(news_link):
     """
     @param news_link TYPE URL
-    @return TYPE Link(title, description, image, url)
+    @return TYPE DICT {title, description, image, url}
     """
 
     title = ''
@@ -44,7 +44,12 @@ def get_og_meta(news_link):
         if title and description and image and url:
             break
 
-    return Link(title, description, image, url)
+    return {
+        "title": title,
+        "description": description,
+        "image": image,
+        "url"; url,
+    }
 
 if __name__ == "__main__":
     url_1 = "http://news.chosun.com/site/data/html_dir/2017/02/26/2017022601574.html?Dep0=facebook&topics"
