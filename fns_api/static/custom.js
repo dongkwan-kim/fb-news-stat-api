@@ -1637,11 +1637,36 @@ if (typeof NProgress != 'undefined') {
                       "data": data});
       }
 			$('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-			  console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
         var length = $("#length").val();
         getAPICall(picker.startDate.format("YYYY-MM-DD"), picker.endDate.format("YYYY-MM-DD"), length)
             .then(function(data){
               app.portals = JSON.parse(data);
+              if ($('#mybarChart').length ){
+
+                var ctx = document.getElementById("mybarChart");
+                var mybarChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: [].map.call(app.portals, function(data){return data.name}),
+                  datasets: [{
+                    label: '# of Votes',
+                    backgroundColor: "#26B99A",
+                    data: [].map.call(app.portals, function(data){ return data.count })
+                  }]
+                },
+
+                options: {
+                  scales: {
+                  yAxes: [{
+                    ticks: {
+                    beginAtZero: true
+                    }
+                  }]
+                  }
+                }
+                });
+
+              }
         });
 			});
 			$('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
@@ -2215,7 +2240,7 @@ if (typeof NProgress != 'undefined') {
 
 			  // Bar chart
 
-			
+
 
 
 			  // Doughnut chart

@@ -13,11 +13,11 @@ var portalLink = {
 
   template : "<div class='panel'>\
                 <a class='panel-heading collapsed' href='panel-heading collapsed' role='tab' data-toggle='collapse'\
-                :data-parent='sharp + parent' :href='sharp + collapse + parent + link.title'\
+                :data-parent='sharp + parent' :href='sharp + collapse + parent + link.lid'\
                 aria-expanded='false'>\
                     <h4 class='panel-title'>{{ link.title }} <span class='label label-success pull-right'>Count : {{link.count}}</span></h4>\
                 </a>\
-                <div class='panel-collapse collapse' :id='collapse + parent + link.title'>\
+                <div class='panel-collapse collapse' :id='collapse + parent + link.lid'>\
                    <div class='panel-body'>\
                         <img :src='link.image' alt=''>\
                         <a :href='link.url'><p> {{ link.description }} </p></a>\
