@@ -1641,7 +1641,7 @@ if (typeof NProgress != 'undefined') {
         var length = $("#length").val();
         getAPICall(picker.startDate.format("YYYY-MM-DD"), picker.endDate.format("YYYY-MM-DD"), length)
             .then(function(data){
-          app.portals = data;
+              app.portals = JSON.parse(data);
         });
 			});
 			$('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
