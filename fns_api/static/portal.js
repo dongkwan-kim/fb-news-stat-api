@@ -8,6 +8,7 @@ var portal = {
                     <div class='x_panel tile fixed_height_320'>\
                       <div class='x_title'>\
                         <h2>{{ portal.name }}</h2>\
+                        <h4>Count : {{ portal.count }}</h4>
                         <div class='clearfix'></div>\
                         </div>\
                         <div class='x_content'>\

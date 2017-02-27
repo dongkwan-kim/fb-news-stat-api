@@ -15,7 +15,6 @@ def log_parse(log, stat_type):
 
 def parse_portal(log):
     for a in collect_tag(log, "a"):
-        //TODO
         pass
 
 def parse_page(log):
