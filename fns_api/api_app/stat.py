@@ -40,20 +40,46 @@ class Stat():
         for log in json.loads(enc_log.enc_info):
             parse_result = log_parse(log, self.stat_type)
 
+            if self.stat_type == "portal":
+                update_portal(parse_result)
+
+            elif self.stat_type == "page":
+                pass
+
+    def update_portal(self, parse_result):
+        # defaultdict(list), key: portal, value: [url]
+        for p_name, url_list in parse_result.items():
+
+            new_portal = Portal(pname, pname)
+            for url in url_list:
+                new_link = Link(url)
+                new_portal.append_link(new_link)
+
+
+
+
+
 
 
 class NewsProvider():
 
     def __init__(self, name):
         self.name = name
-        self.count = 1
+        self.count = 0
         self.link = []
 
     def add_count(self, d=1):
         self.count += d
 
     def append_link(self, link_obj):
-        self.link.append(link_obj)
+        if link_obj in self.link:
+            idx = self.link.index(link_obj)
+            self.link[idx] += link_obj
+
+        else:
+            self.link.append(link_obj)
+
+        self.add_count(link_obj.count)
 
     def dump(self):
         d = vars(self)
@@ -61,11 +87,15 @@ class NewsProvider():
         return d
 
 
+
 class Portal(NewsProvider):
 
     def __init__(self, name, hostname):
         NewsProvider.__init__(self, name)
         self.hostname = hostname
+
+    def __eq__(self, other):
+        return self.hostname == other.hostname
 
 
 class Page(NewsProvider):
@@ -117,23 +147,20 @@ class Link():
     def dump(self):
         return vars(self)
 
+    def __eq__(self, other):
+        return self.url == other.url
+
+    def __add__(self, other):
+        sum_count = self.count + other.count
+        self.count = sum_count
+        return self
+
 
 if __name__ == "__main__":
     import pprint
     l_1 = Link("url1")
-    l_2 = Link("url2")
+    l_2 = Link("url1")
     l_3 = Link("url3")
 
-    p_1 = Portal("p1", "p1_id")
-    p_1.append_link(l_1)
-    p_1.append_link(l_2)
-
-    p_2 = Portal("p2", "p2_id")
-    p_2.append_link(l_3)
-
-    s = Stat("2017-02-15", "2017-02-20", 10)
-    s.append(p_1)
-    s.append(p_2)
-
-    pprint.pprint(s.dump())
-
+    l_t = l_1 + l_2
+    print(l_t.count)

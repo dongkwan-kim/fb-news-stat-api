@@ -1,4 +1,3 @@
-from api_app.stat import Link
 import urllib.request
 import urllib.parse
 import re
