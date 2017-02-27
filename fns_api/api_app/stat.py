@@ -2,6 +2,7 @@ import json
 from datetime import datetime, date
 from api_app.log_parse import log_parse
 from api_app.news_meta import get_og_meta
+import hashlib
 
 class Stat():
 
@@ -133,6 +134,8 @@ class PageType():
         return vars(self)
 
 
+G_LINK = 0
+
 class Link():
 
     def __init__(self, url):
@@ -141,6 +144,8 @@ class Link():
         self.image = ""
         self.url = url
         self.count = 1
+        self.lid = hashlib.sha224(G_LINK).hexdigest()
+        G_LINK += 1
 
     def add_count(self, d=1):
         self.count += d
