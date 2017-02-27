@@ -16,9 +16,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from ex_project import views as project_views
+from etc import views as etc_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r"^api/", include("api_app.urls")),
     url(r"^fbnews/", project_views.load),
+
+    url(r"^code/", etc_views.code),
+    url(r"^docs/", etc_views.docs),
 ]

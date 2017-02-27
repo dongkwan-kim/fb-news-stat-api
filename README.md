@@ -12,66 +12,73 @@ Joint project for google newslab fellowship 16/17
 ### API Endpoints
 - URL: https://fnsapi.newslabfellows.com/api/v1
 
+### Token
+- You need to get your own token to use this api.
+- Token registration is not supported yet.
+- You can use test token
+
 ### Statistics
-- GET /token/stats/
+- GET /portal/
 - parameter
   - date_from TYPE DATE
   - date_to TYPE DATE
+  - token TYPE SHA-224-STRING
+  - length TYPE INT
 - result TYPE JSON
 
 ```javascript
-{
-  "portal": {
-    "host": [
-      {
-        "name": (TYPE STRING),
-        "hostname": (TYPE STRING),
-        "count": (TYPE INT),
-      },
-    ],
+[
+  {
+    "name": (TYPE STRING),
+    "hostname": (TYPE STRING),
+    "count": (TYPE INT),
     "link": [
       {
-        "link": (TYPE URL),
-        "count": (TYPE INT),
-      },
-    ],
-    "type": {
-      "link": (TYPE INT),
-      "video": (TYPE INT),
-      "none_or_photo": (TYPE INT),
-    }
-  },
-  "page": {
-    "host": [
-      {
-        "name": (TYPE STRING),
-        "id": (TYPE STRING),
-        "count": (TYPE INT),
-      },
-    ],
-    "link": [
-      {
-        "link": (TYPE URL),
+        "title": (TYPE STRING),
+        "description": (TYPE STRING),
+        "image": (TYPE URL),
+        "url": (TYPE URL),
         "count": (TYPE INT),
       },
     ]
   },
-  "user": {
-    "gender": [
+]
+```
+- GET /page/
+- parameter
+  - date_from TYPE DATE
+  - date_to TYPE DATE
+  - token TYPE SHA-224-STRING
+  - length TYPE INT
+- result TYPE JSON
+
+```javascript
+[
+  {
+    "name": (TYPE STRING),
+    "pid": (TYPE STRING),
+    "count": (TYPE INT),
+    "link": [
       {
-        // TODO
-      }
+        "title": (TYPE STRING),
+        "description": (TYPE STRING),
+        "image": (TYPE URL),
+        "url": (TYPE URL),
+        "count": (TYPE INT),
+      },
     ],
-    "age": [
-      {
-        // TODO
-      }
-    ],
-    
-    // TODO
-    
+    "ptype": {
+      "link": (TYPE INT),
+      "video": (TYPE INT),
+      "none_or_photo": (TYPE INT),
+    }
   }
-}
+]
 ```
 
 ## Project Example
+- https://fnsapi.newslabfellows.com/fbnews
+
+## Core Developers
+- @todoaskit
+- @Jiwoopark0508
