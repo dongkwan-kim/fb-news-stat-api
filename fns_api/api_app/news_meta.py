@@ -47,8 +47,8 @@ def get_og_meta(news_link, is_naver=False):
             break
 
     r = {
-        "title": title,
-        "description": description,
+        "title": html_decode(title),
+        "description": html_decode(description),
         "image": image,
         "url": url,
     }
@@ -59,12 +59,17 @@ def m_naver(naver_link):
     naver_link = naver_link.replace("news.naver.com", "m.news.naver.com")
     return naver_link
 
-def c(s, e1, e2):
-    try:
-        return s.encode(e1).decode(e2)
-    except:
-        return s
-
+def html_decode(s):
+    htmlCodes = (
+            ("'", '&#39;'),
+            ('"', '&quot;'),
+            ('>', '&gt;'),
+            ('<', '&lt;'),
+            ('&', '&amp;')
+        )
+    for code in htmlCodes:
+        s = s.replace(code[1], code[0])
+    return s
 
 if __name__ == "__main__":
     url = "http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=032&aid=0002766273"
