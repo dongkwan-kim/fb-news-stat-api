@@ -13,6 +13,8 @@ class Stat():
         self.date_from = datetime.strptime(date_from, DP).date()
         self.date_to = datetime.strptime(date_to, DP).date()
         self.length = int(length)
+        if self.length > 20:
+            self.length = 20
 
         self.stat_type = stat_type
         self.stat_list = []
