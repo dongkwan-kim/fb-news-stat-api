@@ -12,7 +12,7 @@ class EncLog(models.Model):
     enc_id = models.CharField(max_length=64)
     enc_info = models.TextField()
     # not DateTimeField
-    last_visit = models.DateField()
+    saved_date = models.DateField()
 
 
 class NewsScore(models.Model):
