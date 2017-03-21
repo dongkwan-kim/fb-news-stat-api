@@ -1,7 +1,11 @@
 # fb-news-stat-api
-Joint project for google newslab fellowship 16/17
+- Joint project for google newslab fellowship 16/17
+
+## Deprecation notice
+- Since March 14 2017
 
 ## Database
+- From team O'Right (Google News Lab Fellowship 16/17)
 
 ## API
 
