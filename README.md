@@ -83,6 +83,7 @@
 ## Project Example
 - https://fnsapi.newslabfellows.com/fbnews
 
-## Core Developers
-- @todoaskit
-- @Jiwoopark0508
+## Developers
+- [@todoaskit](https://github.com/todoaskit)
+- [@Jiwoopark0508](https://github.com/Jiwoopark0508)
+- [@juhojuho](https://github.com/juhojuho)
