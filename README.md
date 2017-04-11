@@ -82,7 +82,7 @@
 
 ## Project Example
 - https://fnsapi.newslabfellows.com/fbnews
-- ![example image](https://raw.githubusercontent.com/todoaskit/fb-news-stat-api/master/gnl_1617_fb-news-api.jpg)
+![example image](https://raw.githubusercontent.com/todoaskit/fb-news-stat-api/master/gnl_1617_fb-news-api.jpg)
 
 ## [Presentation](https://github.com/todoaskit/fb-news-stat-api/blob/master/gnl_1617_fb-news-api.pdf)
 - Graduation ceremony at gnl 16/17 (2017.02.28)
