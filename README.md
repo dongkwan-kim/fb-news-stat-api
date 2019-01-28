@@ -41,7 +41,7 @@ Currently two tokens have been issued. In the future an automatized token applic
 process will be supported. Also, the personal information of the database will be encrypted (SHA-2),
 so the specific user cannot be discerned.
 
-[The Facebook News consumption statistics dashboard](https://github.com/todoaskit/fb-news-stat-api#project-example)
+[The Facebook News consumption statistics dashboard](https://github.com/dongkwan-kim/fb-news-stat-api#project-example)
 uses the above API to visualize statistics of Facebook news consumption. The statistical graph, the
 ranking of the links consumed during a specified period, the ranking of page consumption, the ranking
 of portal consumption etc. are shown.
@@ -124,12 +124,12 @@ of portal consumption etc. are shown.
 
 ## Project Example
 - https://fnsapi.newslabfellows.com/fbnews
-![example image](https://raw.githubusercontent.com/todoaskit/fb-news-stat-api/master/gnl_1617_fb-news-api.jpg)
+![example image](https://raw.githubusercontent.com/dongkwan-kim/fb-news-stat-api/master/gnl_1617_fb-news-api.jpg)
 
-## [Presentation](https://github.com/todoaskit/fb-news-stat-api/blob/master/gnl_1617_fb-news-api.pdf)
+## [Presentation](https://github.com/dongkwan-kim/fb-news-stat-api/blob/master/gnl_1617_fb-news-api.pdf)
 - Graduation ceremony at gnl 16/17 (2017.02.28)
 
 ## Developers
-- [@todoaskit](https://github.com/todoaskit)
+- [@dongkwan-kim](https://github.com/dongkwan-kim)
 - [@Jiwoopark0508](https://github.com/Jiwoopark0508)
 - [@juhojuho](https://github.com/juhojuho)
