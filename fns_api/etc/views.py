@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 
-GITHUB_URL = "https://github.com/todoaskit/fb-news-stat-api"
+GITHUB_URL = "https://github.com/dongkwan-kim/fb-news-stat-api"
 README_PATH = "/blob/master/README.md"
 
 def code(request):
